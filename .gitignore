@@ -2,3 +2,5 @@ target/
 /ivyrepo/
 /sbtboot
 /project
+/.ensime_cache/
+/.history
