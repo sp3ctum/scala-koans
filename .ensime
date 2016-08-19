@@ -1,0 +1,26 @@
+(
+ :root-dir "/home/mvilpas/git/scala-koans"
+ :cache-dir "/home/mvilpas/git/scala-koans/.ensime_cache"
+ :scala-compiler-jars ("/home/mvilpas/.ivy2/cache/org.scala-lang/scala-compiler/jars/scala-compiler-2.10.4.jar" "/home/mvilpas/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.4.jar" "/home/mvilpas/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.10.4.jar" "/home/mvilpas/.ivy2/cache/org.scala-lang/scalap/jars/scalap-2.10.4.jar")
+ :name "scala-koans"
+ :java-home "/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.101-1.b14.fc24.x86_64"
+ :java-flags ("-Xss2m" "-Xms1024m" "-Xmx1024m" "-XX:ReservedCodeCacheSize=128m" "-XX:MaxMetaspaceSize=256m")
+ :java-compiler-args nil
+ :reference-source-roots nil
+ :scala-version "2.10.4"
+ :compiler-args ("-deprecation" "-unchecked" "-feature" "-Xlint" "-Yinline-warnings" "-Yno-adapted-args" "-Ywarn-dead-code" "-Ywarn-numeric-widen" "-Xfuture")
+ :formatting-prefs nil
+ :disable-source-monitoring nil
+ :disable-class-monitoring nil
+ :subprojects ((
+   :name "scala-koans"
+   :source-roots ("/home/mvilpas/git/scala-koans/src/main/java" "/home/mvilpas/git/scala-koans/src/test/scala")
+   :targets ("/home/mvilpas/git/scala-koans/target/scala-2.10/classes")
+   :test-targets ("/home/mvilpas/git/scala-koans/target/scala-2.10/test-classes")
+   :depends-on-modules nil
+   :compile-deps ("/home/mvilpas/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.4.jar")
+   :runtime-deps nil
+   :test-deps ("/home/mvilpas/.ivy2/cache/org.scala-lang/scala-actors/jars/scala-actors-2.10.4.jar" "/home/mvilpas/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.10.4.jar" "/home/mvilpas/.ivy2/cache/org.scalatest/scalatest_2.10/docs/scalatest_2.10-1.9.1-javadoc.jar" "/home/mvilpas/.ivy2/cache/org.scalatest/scalatest_2.10/srcs/scalatest_2.10-1.9.1-sources.jar" "/home/mvilpas/.ivy2/cache/org.scalatest/scalatest_2.10/jars/scalatest_2.10-1.9.1.jar")
+   :doc-jars ("/home/mvilpas/.ivy2/cache/org.scala-lang/scala-actors/docs/scala-actors-2.10.4-javadoc.jar" "/home/mvilpas/git/scala-koans/target/scala-2.10/scala-koans_2.10-1.0-javadoc.jar" "/home/mvilpas/.ivy2/cache/org.scala-lang/scala-library/docs/scala-library-2.10.4-javadoc.jar" "/home/mvilpas/.ivy2/cache/org.scala-lang/scala-reflect/docs/scala-reflect-2.10.4-javadoc.jar" "/home/mvilpas/.ivy2/cache/org.scalatest/scalatest_2.10/docs/scalatest_2.10-1.9.1-javadoc.jar")
+   :reference-source-roots ("/home/mvilpas/.ivy2/cache/org.scala-lang/scala-actors/srcs/scala-actors-2.10.4-sources.jar" "/home/mvilpas/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.10.4-sources.jar" "/home/mvilpas/.ivy2/cache/org.scala-lang/scala-reflect/srcs/scala-reflect-2.10.4-sources.jar" "/home/mvilpas/.ivy2/cache/org.scalatest/scalatest_2.10/srcs/scalatest_2.10-1.9.1-sources.jar")))
+)
