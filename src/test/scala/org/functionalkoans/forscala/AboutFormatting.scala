@@ -33,7 +33,7 @@ class AboutFormatting extends KoanSuite with ShouldMatchers {
     "%c".format(c) should be("a")
     "%c".format(d) should be("a")
     "%c".format(e) should be("\"")
-    "%c".format(f) should be("\\\\")
+    "%c".format(f) should be("\\")
   }
 
 
