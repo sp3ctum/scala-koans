@@ -22,7 +22,7 @@ class AboutMutableSets extends KoanSuite {
     val mySet = mutable.Set("Michigan", "Ohio", "Wisconsin", "Iowa")
     mySet -= ("Iowa", "Ohio")
     mySet contains "Ohio" should be(false)
-    mySet.size should be(__)
+    mySet.size should be(2)
   }
 
   koan("Mutable sets can have tuples of elements added") {
