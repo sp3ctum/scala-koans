@@ -14,7 +14,7 @@ class AboutExtractors extends KoanSuite {
       case _ => "No Batman Joke For You"
     }
 
-    result should be(__)
+    result should be("Where's Batman?")
   }
 
 
@@ -30,13 +30,18 @@ class AboutExtractors extends KoanSuite {
     }
 
     val ChopShop(a, b, c, d) = new Car("Chevy", "Camaro", 1978, 120)
+      // defined class Car
+      // defined module ChopShop
+      // a: String = Chevy
+      // b: String = Camaro
+      // c: Short = 1978
+      // d: Short = 120
 
-    a should be(__)
-    b should be(__)
-    c should be(__)
-    d should be(__)
+    a should be("Chevy")
+    b should be("Camaro")
+    c should be(1978)
+    d should be(120)
   }
-
 
   koan( """Of course an extractor can be used in pattern matching...""") {
     class Car(val make: String, val model: String, val year: Short, val topSpeed: Short)
@@ -50,8 +55,14 @@ class AboutExtractors extends KoanSuite {
       case _ => ("Ford", "Edsel")
     }
 
-    x._1 should be(__)
-    x._2 should be(__)
+      // <console>:20: warning: unreachable code
+      //              case _ => ("Ford", "Edsel")
+      //                        ^
+      // defined module ChopShop
+      // x: (String, String) = (Chevy,Camaro)
+
+    x._1 should be("Chevy")
+    x._2 should be("Camaro")
   }
 
   koan(
@@ -67,9 +78,15 @@ class AboutExtractors extends KoanSuite {
       case ChopShop(s, t, _, _) => (s, t)
       case _ => ("Ford", "Edsel")
     }
+      // <console>:30: warning: unreachable code
+      //              case _ => ("Ford", "Edsel")
+      //                        ^
+      // defined class Car
+      // defined module ChopShop
+      // x: (String, String) = (Chevy,Camaro)
 
-    x._1 should be(__)
-    x._2 should be(__)
+    x._1 should be("Chevy")
+    x._2 should be("Camaro")
   }
 
   koan("As long as the method signatures aren't the same, " +
@@ -78,9 +95,9 @@ class AboutExtractors extends KoanSuite {
     class Employee(val firstName: String, val middleName: Option[String], val lastName: String)
 
     object Tokenizer {
-      def unapply(x: Car) = Some(x.make, x.model, x.year, x.topSpeed)
+      def unapply(x: Car) = Some((x.make, x.model, x.year, x.topSpeed))
 
-      def unapply(x: Employee) = Some(x.firstName, x.lastName)
+      def unapply(x: Employee) = Some((x.firstName, x.lastName))
     }
 
     val result = new Employee("Kurt", None, "Vonnegut") match {
@@ -88,14 +105,14 @@ class AboutExtractors extends KoanSuite {
       case _ => "Not found"
     }
 
-    result should be(__)
+    result should be("c: Kurt, d: Vonnegut")
   }
 
   koan(
     """An extractor can be any stable object, including instantiated classes with an unapply method.""") {
 
     class Car(val make: String, val model: String, val year: Short, val topSpeed: Short) {
-      def unapply(x: Car) = Some(x.make, x.model)
+      def unapply(x: Car) = Some((x.make, x.model))
     }
 
     val camaro = new Car("Chevy", "Camaro", 1978, 122)
@@ -105,7 +122,7 @@ class AboutExtractors extends KoanSuite {
       case _ => "unknown"
     }
 
-    result should be(__)
+    result should be("make: Chevy, model: Camaro")
   }
 
   koan(
@@ -120,16 +137,23 @@ class AboutExtractors extends KoanSuite {
       //factory methods, extractors, apply
       //Extractor: Create tokens that represent your object
       def unapply(x: Employee) =
-        Some(x.lastName, x.middleName, x.firstName)
+        Some((x.lastName, x.middleName, x.firstName))
     }
 
     val singri = new Employee("Singri", None, "Keerthi")
 
     val Employee(a, b, c) = singri
+      // defined class Employee
+      // defined module Employee
+      // singri: Employee = Employee@28e7bb31
+      // a: String = Keerthi
+      // b: Option[String] = None
+      // c: String = Singri
 
-    a should be(__)
-    b should be(__)
-    c should be(__)
+
+    a should be("Keerthi")
+    b should be(None)
+    c should be("Singri")
   }
 
   koan("In this koan we use the unapply for pattern matching employee objects") {
@@ -142,7 +166,7 @@ class AboutExtractors extends KoanSuite {
       //factory methods, extractors, apply
       //Extractor: Create tokens that represent your object
       def unapply(x: Employee) =
-        Some(x.lastName, x.middleName, x.firstName)
+        Some((x.lastName, x.middleName, x.firstName))
     }
 
     val singri = new Employee("Singri", None, "Keerthi")
@@ -153,6 +177,6 @@ class AboutExtractors extends KoanSuite {
       case _ => "I don't care, going on break"
     }
 
-    result should be(__)
+    result should be("I don't care, going on break")
   }
 }
