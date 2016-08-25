@@ -473,11 +473,12 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
           | tail recursion and is optimized. This koan will either work or you will receive a
           | StackOverflowError. If you do receive a StackOverflowError, try reducing the MAX_SIZE value.""") {
 
-    val MAX_SIZE = 1000000
+    // Personal note: decreased this so that the "namaste" test/koan runner will
+    // not randomly crash on this test.
+    val MAX_SIZE = 100// 0000
     val reduceLeftStartTime = new java.util.Date
     (1 to MAX_SIZE) reduceLeft (_ + _)
     val reduceLeftEndTime = new java.util.Date
-
 
     val reduceRightStartTime = new java.util.Date
     (1 to MAX_SIZE) reduceRight (_ + _)
